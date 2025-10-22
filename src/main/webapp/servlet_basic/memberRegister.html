@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>memberRegister</title>
+    <style>
+        h1{
+            font-weight: bold;
+        }
+        p{
+            margin-top: 5px;
+            padding: 0px;
+            color: gray;
+        }
+        hr{
+            color: gray;
+        }
+        h3{
+            padding: 0px;
+            margin-top: 5px;
+            color: darkgray;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+        }
+        input::placeholder {
+            color: gray;
+            font-size: 1.2rem;
+        }
+        input{
+            padding: 10px;
+            background-color: white;
+            border: gray solid 1px;
+            border-radius: 10px;
+        }
+        fieldset {
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 10px;
+        }
+        fieldset > label{
+            width: 50%;
+        }
+        div{
+            flex-direction: row;
+            gap: 15px;
+        }
+        button{
+            margin: 1%;
+            padding: 10px;
+            color: gray;
+            border: gray solid 1px;
+            border-radius: 10px;
+            background-color: white;
+            width: 48%;
+        }
+        #reset{
+            width: 48%;
+            color: gray;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            const button = document.querySelector('button');
+            button.onclick = function validate(){
+                const id = document.getElementById('user_id').value;
+                const password = document.getElementById('user_pwd').value;
+                const password2 = document.getElementById('user_pwd2').value;
+                const login = document.login;
+
+                if((id.length == 0 || id == '') || (password.length == 0 || password == '') || (password2.length == 0 || password2 == '') || (password !== password2)){
+                    alert('아이디와 비밀번호, 비밀번호 확인 입력을 확인해주세요.');
+                } else{
+                    login.method = 'post';
+                    login.action = 'memberRegister';
+                    login.submit();
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <p>아이디, 비밀번호, 성별, 취미를 입력해 주세요.</p>
+    <hr>
+    <form name="login" enctype="UTF-8">
+        <h3>아이디</h3>
+        <input type="text" name="user_id" id="user_id" placeholder="예: yumi_123"><br>
+        <p>영문, 숫자, 밑줄(_)만 사용 가능. 3~20자</p>
+        <h3>비밀번호</h3>
+        <input type="password" name="user_pwd" id="user_pwd" placeholder="비밀번호 입력"><br>
+        <p>6자 이상을 권장합니다.</p>
+        <h3>비밀번호 확인</h3>
+        <input type="password" name="user_pwd2" id="user_pwd2" placeholder="비밀번호 재입력"><br>
+        <p>비밀번호를 다시 입력하세요</p>
+        <fieldset>
+            <legend>성별</legend>
+            <label><input type="radio" name="gender" value="man"> 남성</label>
+            <label><input type="radio" name="gender" value="woman"> 여성</label>
+        </fieldset>
+        <fieldset>
+            <legend>취미 (복수 선택 가능)</legend>
+            <label><input type="checkbox" name="hobby" value="read"> 독서</label>
+            <label><input type="checkbox" name="hobby" value="dive"> 스킨스쿠버</label><br>
+            <label><input type="checkbox" name="hobby" value="swim"> 수영</label>
+            <label><input type="checkbox" name="hobby" value="bicycle"> 자전거</label><br>
+            <label><input type="checkbox" name="hobby" value="run"> 러닝</label>
+        </fieldset>
+        <p>선택 사항입니다.</p>
+        <div>
+            <button id="submit">가입하기</button>
+            <input type="reset" id="reset" value="다시 입력">
+        </div>
+    </form>
+
+
+</body>
+</html>

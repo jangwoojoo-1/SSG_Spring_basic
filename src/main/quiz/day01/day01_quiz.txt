@@ -1,0 +1,48 @@
+ 개념 문제
+
+ 1. 서블릿 수명주기 기본 순서는 init() -> service() -> destroy() 이다
+ 정답 : 0
+
+ 2. doGet 과 doPost의 올바른 설명은?
+    A) doGet은 보안에 강하므로 비밀번호 전송에 권장된다. X -> 보안에 취약함
+    B) doPost는 본문(body)에 데이터를 담아 보낼 수 있다. O -> POST 방식은 요청 본문에 데이터를 담아 전송하며, URL에 노출되지 않음
+    C) doGet은 본문을 반드시 사용해야 한다. X -> GET 방식은 본문을 사용하지 않고, URL의 쿼리 스트링을 통해 데이터를 전달
+    D) 둘 다 브라우저가 자동 캐시를 막는다. X -> GET 요청은 브라우저가 캐시할 수 있지만, POST 요청은 일반적으로 캐시되지 않음.
+
+3. 한글 응답 본문이 깨질 때 반드시 설정해야 하는 응답 헤더(또는 API)는?
+    response.setContentType("MIME; charset=UTF-8");
+
+4. 다음 중 상태 코드와 의미가 맞는 것은?
+    A) 200 - Redirect 완료 X -> OK : 요청이 성공적으로 되었음
+    B) 302 - 임시 리다이렉트 O -> Found : 리소스의 URI가 일시적으로 변경되었음
+    C) 404 - 서버 내부 오류 X -> Not Found : 서버는 요청받은 리소스를 찾을 수 없음
+    D) 500 - 리소스를 찾을 수 없음 X -> Internal Server Error : 서버가 처리방법을 모르는 상황이 발생
+
+5. 쿼리 파라미터를 읽는 메서드는?
+    A) getAttribute B) getParameter C) getHeader D) getCookie
+정답 : B
+
+6. WAS란 무엇이고 상용화 프로그램 종류 2가지
+    웹 애플리케이션 서버(Web Application Server, 약자 WAS)는 웹 애플리케이션과 서버 환경을 만들어 동작시키는 기능을 제공하는 소프트웨어 프레임워크
+    동적 서버 콘텐츠를 수행하는 것으로 일반적인 웹 서버와 구별이 됨
+    종류: Tomcat, JBoss, Jeus
+
+    J2EE 스펙을 구현한 서버로서 분산 트랜잭션, 보안, 스레드 처리 등의 기능을 처리하는 분산 환경에서 사용되는 미들웨어입니다.
+    즉 웹 서버 + 웹 컨테이너로 웹상에서 사용하는 컴포넌트를 올려 사용하는 서버
+
+
+7. 응답객체에서 클라이언트에 전송할 데이터를 쓸 때 사용되는 클래스와 메서드는 무엇인가?
+    - 클래스: PrintWriter
+    - 메서드: PrintWriter out = resp.getWriter(); → out.println();
+
+8. 클라이언트가 서버에 접속했을 때 WAS에 부여해주는 2가지 객체는?
+    HttpServletRequest, HttpServletResponse
+
+9. 서블릿을 WAS 등록할 때 사용되는 어노테이션은 무엇이고, 해당 서블릿의 이름이 myServlet이고 my란 요청명으로 등록방법은?
+    @WebServlet(name="myServlet", value="/my");
+
+10. 클라이언트가 서버에 요청시 해당 요청을 처리하는 서블릿을 연결해주는 배치관리자 역할의 파일명은 무엇이고, 프로젝트에서의 위치(디렉토리명)는 어디인가?
+    web.xml
+    위치 : src/main/webapp/WEB-INF/web.xml
+
+

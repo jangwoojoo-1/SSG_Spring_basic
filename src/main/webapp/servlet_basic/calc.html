@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operations</title>
+</head>
+<body>
+    <form action="calc" method="get" enctype="UTF-8">
+        <label>숫자1 : <input type="number" name="x" id="x" value="0"></label> <br>
+        <label>숫자2 : <input type="number" name="y" id="y" value="0"></label> <br>
+        <label>연산 :
+            <select name="op" id="op">
+                <option value="add">add</option>
+                <option value="sub">sub</option>
+                <option value="mul">mul</option>
+                <option value="div">div</option>
+            </select>
+        </label> <br>
+        <input type="submit" value="전송">&nbsp;<input type="reset" value="리셋">
+    </form>
+</body>
+</html>
